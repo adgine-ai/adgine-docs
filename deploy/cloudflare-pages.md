@@ -20,7 +20,7 @@ Cloudflare Pages 免费账户包含：
 | 设置项 | 值 |
 |--------|-----|
 | Production branch | `main` |
-| Build command | `npm run build:pages` |
+| Build command | `npm run build` |
 | Build output directory | `build` |
 | Node version | `24` |
 
@@ -32,7 +32,9 @@ Cloudflare Pages 免费账户包含：
 
 5. 保存并部署。首次构建完成后获得 `*.pages.dev` 预览域名。
 
-**重要**：本站 `baseUrl` 为 `/docs/`，请访问：
+**重要**：`npm run build` 已自动包含 postbuild（将站点嵌套到 `build/docs/`）并写入 `_redirects` 重写规则。即使 Cloudflare 使用默认的 `npm run build`，`/docs/assets/` 也能正确加载样式。
+
+请访问：
 
 ```
 https://<项目名>.pages.dev/docs/

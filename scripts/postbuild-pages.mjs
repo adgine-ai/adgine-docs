@@ -35,7 +35,7 @@ function main() {
 
   fs.writeFileSync(
     path.join(STAGING, '_redirects'),
-    ['/ /docs/ 301', '/docs /docs/ 301', ''].join('\n'),
+    fs.readFileSync(path.join(ROOT, 'static', '_redirects'), 'utf8'),
     'utf8',
   );
 
