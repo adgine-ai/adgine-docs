@@ -22,7 +22,13 @@ Cloudflare Pages 免费账户包含：
 | Production branch | `main` |
 | Build command | `npm run build` |
 | Build output directory | `build` |
-| Node version | `20` |
+| Node version | `24` |
+
+在 **Settings → Environment variables** 中添加（生产 + 预览环境都设）：
+
+| 变量名 | 值 |
+|--------|-----|
+| `NODE_VERSION` | `24` |
 
 5. 保存并部署。首次构建完成后获得 `*.pages.dev` 预览域名。
 
