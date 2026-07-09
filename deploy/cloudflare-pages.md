@@ -20,7 +20,7 @@ Cloudflare Pages 免费账户包含：
 | 设置项 | 值 |
 |--------|-----|
 | Production branch | `main` |
-| Build command | `npm run build` |
+| Build command | `npm run build:pages` |
 | Build output directory | `build` |
 | Node version | `24` |
 

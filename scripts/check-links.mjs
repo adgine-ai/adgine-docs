@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Basic link checker for built static site.
- * Usage: npm run build && node scripts/check-links.mjs
+ * Basic link checker for built static site (after postbuild-pages).
+ * Usage: npm run build:pages && node scripts/check-links.mjs
  */
 
 import fs from 'node:fs';
@@ -10,6 +10,9 @@ import {fileURLToPath} from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BUILD_DIR = path.resolve(__dirname, '../build');
+const SITE_ROOT = fs.existsSync(path.join(BUILD_DIR, 'docs'))
+  ? path.join(BUILD_DIR, 'docs')
+  : BUILD_DIR;
 
 function walk(dir, files = []) {
   for (const entry of fs.readdirSync(dir, {withFileTypes: true})) {
@@ -22,11 +25,11 @@ function walk(dir, files = []) {
 
 function main() {
   if (!fs.existsSync(BUILD_DIR)) {
-    console.error('Build directory not found. Run `npm run build` first.');
+    console.error('Build directory not found. Run npm run build:pages first.');
     process.exit(1);
   }
 
-  const htmlFiles = walk(BUILD_DIR);
+  const htmlFiles = walk(SITE_ROOT);
   const hrefPattern = /href="(\/docs\/[^"#?]+)"/g;
   const missing = [];
 
@@ -35,12 +38,13 @@ function main() {
     let match;
     while ((match = hrefPattern.exec(content)) !== null) {
       const href = match[1].replace(/\/$/, '');
+      const relative = href.replace(/^\/docs\//, '');
       const candidates = [
-        path.join(BUILD_DIR, href.replace(/^\/docs\//, '') + '.html'),
-        path.join(BUILD_DIR, href.replace(/^\/docs\//, ''), 'index.html'),
+        path.join(SITE_ROOT, relative + '.html'),
+        path.join(SITE_ROOT, relative, 'index.html'),
       ];
       if (!candidates.some((c) => fs.existsSync(c))) {
-        missing.push({from: path.relative(BUILD_DIR, file), href});
+        missing.push({from: path.relative(SITE_ROOT, file), href});
       }
     }
   }
@@ -53,7 +57,9 @@ function main() {
     process.exit(1);
   }
 
-  console.log(`Checked ${htmlFiles.length} HTML file(s). No broken /docs/ links found.`);
+  console.log(
+    `Checked ${htmlFiles.length} HTML file(s) under ${path.relative(BUILD_DIR, SITE_ROOT) || '.'}. No broken /docs/ links found.`,
+  );
 }
 
 main();

@@ -6,6 +6,7 @@
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
+    "build:pages": "docusaurus build && node scripts/postbuild-pages.mjs",
     "build:all": "docusaurus build --locale zh && docusaurus build --locale zh-TW && docusaurus build --locale en",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
