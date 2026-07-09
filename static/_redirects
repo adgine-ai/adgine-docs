@@ -1,0 +1,4 @@
+# Cloudflare Pages: site is built with baseUrl /docs/
+# Redirect root visitors to the correct path
+/ /docs/ 301
+/docs /docs/ 301

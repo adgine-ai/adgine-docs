@@ -32,6 +32,16 @@ Cloudflare Pages 免费账户包含：
 
 5. 保存并部署。首次构建完成后获得 `*.pages.dev` 预览域名。
 
+**重要**：本站 `baseUrl` 为 `/docs/`，请访问：
+
+```
+https://<项目名>.pages.dev/docs/
+```
+
+不要只打开 `https://<项目名>.pages.dev/`（根路径会导致样式加载失败）。仓库已包含 `static/_redirects`，根路径会自动 301 跳转到 `/docs/`。
+
+正式域名 `https://adgine.ai/docs/` 需在 Nginx 反代后访问（见 `nginx-adgine-docs.conf`）。
+
 ## 自定义域名（可选）
 
 在 Pages 项目 → **Custom domains** 中添加 `docs-static.adgine.ai`，然后在 `adgine.ai` Nginx 中反代到该域名或 `*.pages.dev`。
