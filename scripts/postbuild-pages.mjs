@@ -58,6 +58,17 @@ function main() {
   rmrf(BUILD);
   fs.renameSync(STAGING, BUILD);
 
+  const nestedRedirects = path.join(BUILD, 'docs', '_redirects');
+  if (fs.existsSync(nestedRedirects)) {
+    fs.unlinkSync(nestedRedirects);
+  }
+
+  const assetsDir = path.join(BUILD, 'docs', 'assets');
+  if (!fs.existsSync(assetsDir)) {
+    console.error('FATAL: build/docs/assets missing after postbuild.');
+    process.exit(1);
+  }
+
   console.log('Post-build: nested site at build/docs/ for Cloudflare Pages.');
 }
 

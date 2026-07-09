@@ -1,18 +1,5 @@
-# Cloudflare Pages — baseUrl is /docs/, static files may live at site root (default build)
-# or under /docs/ (postbuild). Rewrites only apply when no static file matches.
+# Cloudflare Pages — site is nested at build/docs/ (see scripts/postbuild-pages.mjs)
+# Static files are served directly under /docs/; only root redirects are needed.
 
-# Root → docs home
 / /docs/ 301
 /docs /docs/ 301
-
-# Flat-build rewrites (/docs/* → /*)
-/docs/assets/* /assets/:splat 200
-/docs/img/* /img/:splat 200
-/docs/en/* /en/:splat 200
-/docs/zh-TW/* /zh-TW/:splat 200
-/docs/appendix/* /appendix/:splat 200
-/docs/features/* /features/:splat 200
-/docs/getting-started/* /getting-started/:splat 200
-/docs/sitemap.xml /sitemap.xml 200
-/docs/ /index.html 200
-/docs/* /:splat 200
