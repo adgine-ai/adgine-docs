@@ -2,6 +2,8 @@
 
 Adgine GEO 平台产品使用手册，基于 [Docusaurus 3](https://docusaurus.io/) 构建。
 
+- **仓库**：[github.com/adgine-ai/adgine-docs](https://github.com/adgine-ai/adgine-docs)
+
 - **生产地址**：https://adgine.ai/docs
 - **部署**：Cloudflare Pages（免费版）+ adgine.ai Nginx 反代
 - **语言**：简体中文（默认）、繁体中文、English

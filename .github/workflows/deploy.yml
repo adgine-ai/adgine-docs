@@ -61,14 +61,14 @@ jobs:
         continue-on-error: true
         uses: actions/checkout@v4
         with:
-          repository: adgine/GEO-Api
+          repository: adgine-ai/GEO-Api
           path: GEO-Api
 
       - name: Checkout GEO-Dashboard (optional sources)
         continue-on-error: true
         uses: actions/checkout@v4
         with:
-          repository: adgine/GEO-Dashboard
+          repository: adgine-ai/GEO-Dashboard
           path: GEO-Dashboard
 
       - run: node scripts/generate-docs.mjs

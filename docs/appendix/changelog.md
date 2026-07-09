@@ -20,4 +20,4 @@ description: Adgine 文档站与产品更新记录。
 
 ---
 
-文档有遗漏或错误？欢迎通过 [GitHub Issues](https://github.com/adgine/Adgine-Docs/issues) 反馈。
+文档有遗漏或错误？欢迎通过 [GitHub Issues](https://github.com/adgine-ai/adgine-docs/issues) 反馈。

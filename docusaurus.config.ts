@@ -14,8 +14,8 @@ const config: Config = {
   url: 'https://adgine.ai',
   baseUrl: '/docs/',
 
-  organizationName: 'adgine',
-  projectName: 'Adgine-Docs',
+  organizationName: 'adgine-ai',
+  projectName: 'adgine-docs',
 
   onBrokenLinks: 'throw',
 
@@ -45,7 +45,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
-          editUrl: 'https://github.com/adgine/Adgine-Docs/tree/main/',
+          editUrl: 'https://github.com/adgine-ai/adgine-docs/tree/main/',
         },
         blog: false,
         theme: {
@@ -111,7 +111,7 @@ const config: Config = {
           title: '更多',
           items: [
             {label: '更新日志', to: '/appendix/changelog'},
-            {label: 'GitHub', href: 'https://github.com/adgine/Adgine-Docs'},
+            {label: 'GitHub', href: 'https://github.com/adgine-ai/adgine-docs'},
           ],
         },
       ],
