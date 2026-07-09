@@ -1,0 +1,16 @@
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.features {
+  padding: 3rem 0 4rem;
+}

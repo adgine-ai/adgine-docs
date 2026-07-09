@@ -1,0 +1,113 @@
+[
+  {
+    "route": "/project",
+    "docSlug": "getting-started/onboarding-wizard",
+    "title": "创建项目",
+    "sidebarOrder": 1,
+    "summarySources": ["GEO-Api/docs/summary/registration-flows.md"],
+    "skillSources": ["adgine-geo-projects"]
+  },
+  {
+    "route": "/subscribe",
+    "docSlug": "features/billing",
+    "title": "订阅与积分",
+    "sidebarOrder": 13,
+    "summarySources": [
+      "GEO-Api/docs/summary/stripe.md",
+      "GEO-Api/docs/summary/credits.md",
+      "GEO-Api/docs/summary/credits-billing.md"
+    ],
+    "skillSources": ["adgine-geo-billing"]
+  },
+  {
+    "route": "/project/generate/:project_id",
+    "docSlug": "getting-started/onboarding-wizard",
+    "title": "品牌初始化向导",
+    "sidebarOrder": 2,
+    "summarySources": ["GEO-Api/docs/summary/brand/brand-cognition.md"],
+    "skillSources": ["adgine-geo-brand"]
+  },
+  {
+    "route": "/geo/brand",
+    "docSlug": "features/brand",
+    "title": "品牌认知",
+    "sidebarOrder": 4,
+    "summarySources": ["GEO-Api/docs/summary/brand/brand-cognition.md"],
+    "skillSources": ["adgine-geo-brand"]
+  },
+  {
+    "route": "/geo/topics",
+    "docSlug": "features/topics",
+    "title": "主题与提示词",
+    "sidebarOrder": 5,
+    "summarySources": ["GEO-Api/docs/summary/topics.md"],
+    "skillSources": ["adgine-geo-topics", "adgine-geo-citation"]
+  },
+  {
+    "route": "/geo/content",
+    "docSlug": "features/content",
+    "title": "内容创作",
+    "sidebarOrder": 6,
+    "summarySources": [
+      "GEO-Api/docs/summary/article.md",
+      "GEO-Api/docs/summary/outline.md"
+    ],
+    "skillSources": ["adgine-geo-content"]
+  },
+  {
+    "route": "/geo/opportunities",
+    "docSlug": "features/opportunities",
+    "title": "机会分析",
+    "sidebarOrder": 7,
+    "summarySources": ["GEO-Api/docs/summary/opportunities.md"],
+    "skillSources": ["adgine-geo-opportunities"]
+  },
+  {
+    "route": "/geo/analytics",
+    "docSlug": "features/analytics",
+    "title": "可见性分析",
+    "sidebarOrder": 8,
+    "summarySources": [
+      "GEO-Api/docs/summary/mention-analysis.md",
+      "GEO-Api/docs/summary/dashboard.md"
+    ],
+    "skillSources": ["adgine-geo-visibility", "adgine-geo-analytics"]
+  },
+  {
+    "route": "/geo/crawler",
+    "docSlug": "features/crawler",
+    "title": "爬虫与流量",
+    "sidebarOrder": 9,
+    "summarySources": ["GEO-Api/docs/summary/dashboard.md"],
+    "skillSources": ["adgine-geo-aiagent"]
+  },
+  {
+    "route": "/dashboard",
+    "docSlug": "features/dashboard",
+    "title": "Dashboard 总览",
+    "sidebarOrder": 10,
+    "summarySources": ["GEO-Api/docs/summary/dashboard.md"],
+    "skillSources": ["adgine-geo-dashboard"]
+  },
+  {
+    "route": "/geo/integration",
+    "docSlug": "features/integrations/overview",
+    "title": "第三方集成",
+    "sidebarOrder": 11,
+    "summarySources": [
+      "GEO-Api/docs/summary/integrations.md",
+      "GEO-Api/docs/summary/wordpress-integration.md",
+      "GEO-Api/docs/summary/cloudflare.md",
+      "GEO-Api/docs/summary/vercel-integration.md"
+    ],
+    "skillSources": ["adgine-geo-integrations"]
+  },
+  {
+    "route": "/profile",
+    "docSlug": "features/api-keys",
+    "title": "API Key",
+    "sidebarOrder": 14,
+    "summarySources": ["GEO-Api/docs/summary/auth.md"],
+    "skillSources": ["adgine-geo-docs"]
+  }
+]

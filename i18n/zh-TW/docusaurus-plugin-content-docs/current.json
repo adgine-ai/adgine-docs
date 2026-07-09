@@ -1,0 +1,22 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.开始": {
+    "message": "开始",
+    "description": "The label for category '开始' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.功能指南": {
+    "message": "功能指南",
+    "description": "The label for category '功能指南' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.第三方集成": {
+    "message": "第三方集成",
+    "description": "The label for category '第三方集成' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.附录": {
+    "message": "附录",
+    "description": "The label for category '附录' in sidebar 'docsSidebar'"
+  }
+}

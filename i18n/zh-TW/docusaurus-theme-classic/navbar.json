@@ -1,0 +1,18 @@
+{
+  "title": {
+    "message": "Adgine 文檔",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Adgine",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.文档": {
+    "message": "文檔",
+    "description": "Navbar item with label 文档"
+  },
+  "item.label.登录平台": {
+    "message": "登入平台",
+    "description": "Navbar item with label 登录平台"
+  }
+}

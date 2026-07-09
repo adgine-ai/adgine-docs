@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        locale: [zh, zh-TW, en]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build (${{ matrix.locale }})
+        run: npm run build -- --locale ${{ matrix.locale }}
+
+      - name: Upload build artifact (${{ matrix.locale }})
+        if: matrix.locale == 'zh'
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-zh
+          path: build/
+          retention-days: 7
+
+  link-check:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+      - run: npm run check-links
+
+  generate-docs-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Checkout GEO-Api (optional sources)
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: adgine/GEO-Api
+          path: GEO-Api
+
+      - name: Checkout GEO-Dashboard (optional sources)
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: adgine/GEO-Dashboard
+          path: GEO-Dashboard
+
+      - run: node scripts/generate-docs.mjs
+        env:
+          GEO_API_ROOT: ${{ github.workspace }}/GEO-Api
+          GEO_WEB_ROOT: ${{ github.workspace }}/GEO-Dashboard
