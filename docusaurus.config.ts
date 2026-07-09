@@ -65,7 +65,8 @@ const config: Config = {
       title: 'Adgine 文档',
       logo: {
         alt: 'Adgine',
-        src: 'img/logo.svg',
+        src: 'https://adgine.ai/wp-content/uploads/logo/adgine.svg',
+        href: 'https://adgine.ai',
       },
       items: [
         {

@@ -4,19 +4,103 @@
     "description": "The label for version current"
   },
   "sidebar.docsSidebar.category.开始": {
-    "message": "开始",
+    "message": "Getting Started",
     "description": "The label for category '开始' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.功能指南": {
-    "message": "功能指南",
+    "message": "Feature Guides",
     "description": "The label for category '功能指南' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.第三方集成": {
-    "message": "第三方集成",
+    "message": "Integrations",
     "description": "The label for category '第三方集成' in sidebar 'docsSidebar'"
   },
   "sidebar.docsSidebar.category.附录": {
-    "message": "附录",
+    "message": "Appendix",
     "description": "The label for category '附录' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.doc.文档首页": {
+    "message": "Documentation Home",
+    "description": "The label for the doc item '文档首页' in sidebar 'docsSidebar', linking to the doc intro"
+  },
+  "sidebar.docsSidebar.doc.快速入门": {
+    "message": "Quick Start",
+    "description": "The label for the doc item '快速入门' in sidebar 'docsSidebar', linking to the doc getting-started/quick-start"
+  },
+  "sidebar.docsSidebar.doc.新用户向导": {
+    "message": "New User Guide",
+    "description": "The label for the doc item '新用户向导' in sidebar 'docsSidebar', linking to the doc getting-started/onboarding-wizard"
+  },
+  "sidebar.docsSidebar.doc.品牌认知": {
+    "message": "Brand Cognition",
+    "description": "The label for the doc item '品牌认知' in sidebar 'docsSidebar', linking to the doc features/brand"
+  },
+  "sidebar.docsSidebar.doc.主题与提示词": {
+    "message": "Topics & Prompts",
+    "description": "The label for the doc item '主题与提示词' in sidebar 'docsSidebar', linking to the doc features/topics"
+  },
+  "sidebar.docsSidebar.doc.内容创作与发布": {
+    "message": "Content Creation",
+    "description": "The label for the doc item '内容创作与发布' in sidebar 'docsSidebar', linking to the doc features/content"
+  },
+  "sidebar.docsSidebar.doc.机会分析": {
+    "message": "Opportunity Analysis",
+    "description": "The label for the doc item '机会分析' in sidebar 'docsSidebar', linking to the doc features/opportunities"
+  },
+  "sidebar.docsSidebar.doc.可见性分析": {
+    "message": "Visibility Analytics",
+    "description": "The label for the doc item '可见性分析' in sidebar 'docsSidebar', linking to the doc features/analytics"
+  },
+  "sidebar.docsSidebar.doc.爬虫与流量监控": {
+    "message": "Crawler & Traffic",
+    "description": "The label for the doc item '爬虫与流量监控' in sidebar 'docsSidebar', linking to the doc features/crawler"
+  },
+  "sidebar.docsSidebar.doc.Dashboard 总览": {
+    "message": "Dashboard",
+    "description": "The label for the doc item 'Dashboard 总览' in sidebar 'docsSidebar', linking to the doc features/dashboard"
+  },
+  "sidebar.docsSidebar.doc.集成总览": {
+    "message": "Integrations Overview",
+    "description": "The label for the doc item '集成总览' in sidebar 'docsSidebar', linking to the doc features/integrations/overview"
+  },
+  "sidebar.docsSidebar.doc.GA4 集成": {
+    "message": "GA4 Integration",
+    "description": "The label for the doc item 'GA4 集成' in sidebar 'docsSidebar', linking to the doc features/integrations/ga4"
+  },
+  "sidebar.docsSidebar.doc.Cloudflare 集成": {
+    "message": "Cloudflare Integration",
+    "description": "The label for the doc item 'Cloudflare 集成' in sidebar 'docsSidebar', linking to the doc features/integrations/cloudflare"
+  },
+  "sidebar.docsSidebar.doc.WordPress 集成": {
+    "message": "WordPress Integration",
+    "description": "The label for the doc item 'WordPress 集成' in sidebar 'docsSidebar', linking to the doc features/integrations/wordpress"
+  },
+  "sidebar.docsSidebar.doc.Adgine CMS 集成": {
+    "message": "Adgine CMS Integration",
+    "description": "The label for the doc item 'Adgine CMS 集成' in sidebar 'docsSidebar', linking to the doc features/integrations/adgine-cms"
+  },
+  "sidebar.docsSidebar.doc.Vercel 集成": {
+    "message": "Vercel Integration",
+    "description": "The label for the doc item 'Vercel 集成' in sidebar 'docsSidebar', linking to the doc features/integrations/vercel"
+  },
+  "sidebar.docsSidebar.doc.订阅与积分": {
+    "message": "Billing & Credits",
+    "description": "The label for the doc item '订阅与积分' in sidebar 'docsSidebar', linking to the doc features/billing"
+  },
+  "sidebar.docsSidebar.doc.API Key 使用": {
+    "message": "API Keys",
+    "description": "The label for the doc item 'API Key 使用' in sidebar 'docsSidebar', linking to the doc features/api-keys"
+  },
+  "sidebar.docsSidebar.doc.术语表": {
+    "message": "Glossary",
+    "description": "The label for the doc item '术语表' in sidebar 'docsSidebar', linking to the doc appendix/glossary"
+  },
+  "sidebar.docsSidebar.doc.更新日志": {
+    "message": "Changelog",
+    "description": "The label for the doc item '更新日志' in sidebar 'docsSidebar', linking to the doc appendix/changelog"
+  },
+  "sidebar.docsSidebar.doc.PDF 使用手册": {
+    "message": "PDF Manual",
+    "description": "The label for the doc item 'PDF 使用手册' in sidebar 'docsSidebar', linking to the doc appendix/pdf-manual"
   }
 }
