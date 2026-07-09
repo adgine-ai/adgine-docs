@@ -27,7 +27,7 @@ Visit [platform.adgine.ai](https://platform.adgine.ai):
 
 New accounts receive a **30-day free trial**.
 
-## Step 2: Create a project {#step-2-create-a-project}
+## Step 2: Create a project
 
 1. Enter your **website domain**
 2. Optionally add a brand description
