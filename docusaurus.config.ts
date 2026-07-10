@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Adgine 文档',
   tagline: '生成式引擎优化（GEO）产品使用手册',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.webp',
 
   future: {
     v4: true,
