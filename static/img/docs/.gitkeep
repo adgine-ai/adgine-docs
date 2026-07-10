@@ -6,4 +6,4 @@
 - `content/` — 内容创作
 - `analytics/` — 可见性分析
 
-Markdown 引用：`![说明](/img/docs/brand/overview.png)`
+Markdown 引用（Decap 会自动插入正确路径）：`![说明](/docs/img/docs/brand/overview.png)`

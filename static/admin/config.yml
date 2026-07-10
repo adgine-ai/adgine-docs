@@ -18,7 +18,8 @@ logo_url: https://adgine.ai/wp-content/uploads/logo/adgine.svg
 locale: zh_Hans
 
 media_folder: static/img/docs
-public_folder: /img/docs
+# 文档站 baseUrl 为 /docs/，公开路径必须带此前缀，否则预览会请求 adgine.ai/img/... 导致 404
+public_folder: /docs/img/docs
 
 slug:
   encoding: ascii

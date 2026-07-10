@@ -49,7 +49,7 @@
 2. 系统自动上传并插入 Markdown：
 
    ```markdown
-   ![图片说明](/img/docs/xxx.png)
+   ![图片说明](/docs/img/docs/xxx.png)
    ```
 
 ### 方法二：工具栏插入
