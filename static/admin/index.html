@@ -6,6 +6,37 @@
     <title>Adgine 文档后台</title>
   </head>
   <body>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- 3.8.4+ 修复编辑器内图片预览 404（草稿态用 blob URL） -->
+    <script src="https://unpkg.com/decap-cms@3.8.4/dist/decap-cms.js"></script>
+    <script>
+      // 编辑器预览：若站点尚未部署新图，回退到 GitHub raw（上传 commit 后即可显示）
+      (function () {
+        var RAW =
+          'https://raw.githubusercontent.com/adgine-ai/adgine-docs/main/static/img/docs';
+        var SITE_PREFIX = '/docs/img/docs/';
+
+        function fallbackSrc(img) {
+          var src = img.getAttribute('src') || '';
+          if (!src || src.indexOf('blob:') === 0 || src.indexOf(RAW) === 0) return;
+          var idx = src.indexOf(SITE_PREFIX);
+          if (idx === -1) return;
+          var name = src.slice(idx + SITE_PREFIX.length).split('?')[0];
+          if (!name) return;
+          img.onerror = null;
+          img.src = RAW + '/' + name;
+        }
+
+        new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType !== 1) return;
+              if (node.tagName === 'IMG') fallbackSrc(node);
+              node.querySelectorAll &&
+                node.querySelectorAll('img').forEach(fallbackSrc);
+            });
+          });
+        }).observe(document.body, {childList: true, subtree: true});
+      })();
+    </script>
   </body>
 </html>

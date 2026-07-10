@@ -8,7 +8,7 @@
 /scripts/generated
 .docusaurus
 .cache-loader
-
+/ref
 # Misc
 .DS_Store
 .env
