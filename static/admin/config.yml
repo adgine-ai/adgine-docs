@@ -1,0 +1,188 @@
+# 部署前请把 base_url 改成你的 Cloudflare Worker 地址
+# 详见 deploy/decap-cms-setup.md
+
+backend:
+  name: github
+  repo: adgine-ai/adgine-docs
+  branch: main
+  base_url: https://adgine-docs-oauth.shanghaichuanyou.workers.dev
+  auth_endpoint: auth
+
+publish_mode: editorial_workflow
+
+site_url: https://adgine.ai/docs/
+display_url: https://adgine.ai/docs
+logo_url: https://adgine.ai/wp-content/uploads/logo/adgine.svg
+
+locale: zh_Hans
+
+media_folder: static/img/docs
+public_folder: /img/docs
+
+slug:
+  encoding: ascii
+  clean_accents: replace
+  sanitize_replacement: '-'
+
+# 共用 frontmatter 字段
+doc_fields: &doc_fields
+  - label: 文档 ID
+    name: id
+    widget: string
+    hint: 与 sidebars.ts 中的 id 一致，如 brand
+  - label: 标题
+    name: title
+    widget: string
+  - label: URL Slug（可选）
+    name: slug
+    widget: string
+    required: false
+    hint: 文档首页填 /
+  - label: 侧边栏顺序
+    name: sidebar_position
+    widget: number
+    required: false
+    value_type: int
+  - label: SEO 描述
+    name: description
+    widget: text
+    required: false
+  - label: 正文
+    name: body
+    widget: markdown
+    hint: 可拖拽上传图片，或点击工具栏插入图片
+
+collections:
+  - name: docs_zh_getting_started
+    label: 简体中文 · 开始
+    label_singular: 文档
+    folder: docs/getting-started
+    create: true
+    extension: md
+    format: frontmatter
+    fields: *doc_fields
+
+  - name: docs_zh_features
+    label: 简体中文 · 功能指南
+    label_singular: 文档
+    folder: docs/features
+    create: true
+    extension: md
+    format: frontmatter
+    filter: {field: path, pattern: '^(?!integrations/).*'}
+    fields: *doc_fields
+
+  - name: docs_zh_integrations
+    label: 简体中文 · 第三方集成
+    label_singular: 文档
+    folder: docs/features/integrations
+    create: true
+    extension: md
+    format: frontmatter
+    fields: *doc_fields
+
+  - name: docs_zh_appendix
+    label: 简体中文 · 附录
+    label_singular: 文档
+    folder: docs/appendix
+    create: true
+    extension: md
+    format: frontmatter
+    fields: *doc_fields
+
+  - name: docs_zh_intro
+    label: 简体中文 · 文档首页
+    files:
+      - label: 文档首页
+        name: intro
+        file: docs/intro.md
+        fields: *doc_fields
+
+  - name: docs_en_getting_started
+    label: English · Getting Started
+    label_singular: Page
+    folder: i18n/en/docusaurus-plugin-content-docs/current/getting-started
+    create: true
+    extension: md
+    format: frontmatter
+    fields: *doc_fields
+
+  - name: docs_en_features
+    label: English · Features
+    label_singular: Page
+    folder: i18n/en/docusaurus-plugin-content-docs/current/features
+    create: true
+    extension: md
+    format: frontmatter
+    filter: {field: path, pattern: '^(?!integrations/).*'}
+    fields: *doc_fields
+
+  - name: docs_en_integrations
+    label: English · Integrations
+    label_singular: Page
+    folder: i18n/en/docusaurus-plugin-content-docs/current/features/integrations
+    create: true
+    extension: md
+    format: frontmatter
+    fields: *doc_fields
+
+  - name: docs_en_intro
+    label: English · Home
+    files:
+      - label: Documentation Home
+        name: intro
+        file: i18n/en/docusaurus-plugin-content-docs/current/intro.md
+        fields: *doc_fields
+
+  - name: docs_tw_getting_started
+    label: 繁體中文 · 開始
+    label_singular: 文檔
+    folder: i18n/zh-TW/docusaurus-plugin-content-docs/current/getting-started
+    create: true
+    extension: md
+    format: frontmatter
+    fields: *doc_fields
+
+  - name: docs_tw_features
+    label: 繁體中文 · 功能指南
+    label_singular: 文檔
+    folder: i18n/zh-TW/docusaurus-plugin-content-docs/current/features
+    create: true
+    extension: md
+    format: frontmatter
+    filter: {field: path, pattern: '^(?!integrations/).*'}
+    fields: *doc_fields
+
+  - name: docs_tw_integrations
+    label: 繁體中文 · 第三方整合
+    label_singular: 文檔
+    folder: i18n/zh-TW/docusaurus-plugin-content-docs/current/features/integrations
+    create: true
+    extension: md
+    format: frontmatter
+    fields: *doc_fields
+
+  - name: docs_tw_intro
+    label: 繁體中文 · 文檔首頁
+    files:
+      - label: 文檔首頁
+        name: intro
+        file: i18n/zh-TW/docusaurus-plugin-content-docs/current/intro.md
+        fields: *doc_fields
+
+  - name: changelog
+    label: 更新日志
+    files:
+      - label: 更新日志
+        name: changelog
+        file: docs/appendix/changelog.md
+        fields:
+          - label: 文档 ID
+            name: id
+            widget: string
+          - label: 标题
+            name: title
+            widget: string
+          - label: 正文
+            name: body
+            widget: markdown

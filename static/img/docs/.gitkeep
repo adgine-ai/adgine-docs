@@ -1,0 +1,9 @@
+# 文档配图目录（Decap CMS 上传目标）
+
+请将截图放在对应子目录，例如：
+
+- `brand/` — 品牌认知
+- `content/` — 内容创作
+- `analytics/` — 可见性分析
+
+Markdown 引用：`![说明](/img/docs/brand/overview.png)`

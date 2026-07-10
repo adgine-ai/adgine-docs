@@ -29,6 +29,16 @@ deploy/               # Nginx 与 Cloudflare Pages 部署说明
 
 ## 编辑文档
 
+### 运营后台（推荐）
+
+使用 **Decap CMS** 可视化编辑，支持拖拽上传截图：
+
+- 后台地址：https://adgine.ai/docs/admin/
+- 搭建指南：[deploy/decap-cms-setup.md](deploy/decap-cms-setup.md)
+- 运营手册：[deploy/ops-editor-guide.md](deploy/ops-editor-guide.md)
+
+### 开发者 / Git 直编
+
 1. 修改 `docs/` 下对应 `.md` 文件
 2. 提交 PR，Cloudflare Pages 自动生成预览
 3. 合并 `main` 后自动发布
@@ -58,7 +68,7 @@ npm run write-translations   # 提取待翻译 UI 字符串
 
 ## 部署
 
-详见 [deploy/cloudflare-pages.md](deploy/cloudflare-pages.md) 与 [deploy/nginx-adgine-docs.conf](deploy/nginx-adgine-docs.conf)。
+详见 [deploy/cloudflare-pages.md](deploy/cloudflare-pages.md)、[deploy/nginx-adgine-docs.conf](deploy/nginx-adgine-docs.conf) 与 [deploy/decap-cms-setup.md](deploy/decap-cms-setup.md)。
 
 ## 维护 checklist
 

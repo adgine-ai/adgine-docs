@@ -1,0 +1,10 @@
+name = "adgine-docs-oauth"
+main = "src/index.js"
+compatibility_date = "2024-09-01"
+
+# 部署后把 workers.dev 地址填入 static/admin/config.yml 的 base_url
+# wrangler deploy
+
+[vars]
+# 可选：限制哪些站点来源可使用 OAuth（逗号分隔）
+# ALLOWED_ORIGINS = "https://adgine.ai,https://adgine-docs.pages.dev"
