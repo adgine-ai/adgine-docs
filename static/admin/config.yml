@@ -66,10 +66,9 @@ collections:
       - label: 正文
         name: body
         widget: markdown
-        editor_components: [code-block]
         hint: >-
-          插入图片：先点左侧「媒体库」上传，再在正文工具栏点「插入图片」选用。
-          正文区不支持拖拽上传；勿用「添加组件 → Image」（与文档站不兼容）。
+          插入图片：点 ➕ → Image，或先到左侧「媒体库」上传后再选用。
+          添加后须点右上角「发布」保存；图片提交到 GitHub 后编辑器与线上才能显示。
 
   - name: docs_zh_features
     label: 简体中文 · 功能指南
