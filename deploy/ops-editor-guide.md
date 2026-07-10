@@ -35,9 +35,9 @@
 
 ### 保存后会发生什么
 
-- 系统会在 GitHub 创建 **Pull Request（PR）**
-- Cloudflare 自动生成 **预览链接**（在 PR 页面查看）
-- **不会立即上线**，需审核人合并 PR 后才发布
+- 系统会**直接提交到 main 分支**（当前为直接发布模式）
+- Cloudflare 自动触发构建，约 **1–2 分钟**后 `https://adgine.ai/docs/` 更新
+- 若团队改为 PR 模式，则会创建 Pull Request，需审核合并后才上线
 
 ---
 
@@ -106,7 +106,9 @@
    - 可见性分析：补充 Perplexity 截图
    ```
 
-3. Save → 走 PR 审核流程
+3. Save → **直接提交 main** → 约 1–2 分钟后自动上线
+
+> 若团队启用了 PR 审核模式，Save 会创建 Pull Request，需审核人合并后才发布。
 
 ---
 

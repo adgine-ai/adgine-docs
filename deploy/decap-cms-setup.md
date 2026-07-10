@@ -148,19 +148,21 @@ GitHub → `adgine-ai/adgine-docs` → **Settings** → **Collaborators and team
 - 为运营创建 GitHub 账号（或加入组织）
 - 赋予 **Write** 权限（不要给 Admin，除非对方负责基建）
 
-### 6.2 开启分支保护（强烈推荐）
+### 6.2 分支保护（二选一）
 
-**Settings** → **Branches** → **Add branch protection rule** → `main`
+**方案 A — 直接发布（当前配置，适合小团队）**
 
-建议勾选：
+- `config.yml` 使用 `publish_mode: simple`
+- **不要**对 `main` 开启「必须通过 PR 合并」
+- 运营 Save → 直接提交 `main` → Cloudflare 自动构建上线（约 1–2 分钟）
 
-- [x] Require a pull request before merging
-- [x] Require approvals（至少 1 人，产品或开发）
-- [ ] Do not allow bypassing（可选，管理员也走 PR）
+**方案 B — PR 审核（适合多人协作）**
 
-配合 Decap 的 `publish_mode: editorial_workflow`，运营点 **Save** 会创建草稿分支和 PR，**不会直接改生产**。
+- `config.yml` 改为 `publish_mode: editorial_workflow`
+- `main` 开启分支保护：必须 PR + 至少 1 人审核
+- 运营 Save → 创建 PR → 审核合并后上线
 
-### 6.3 Decap 工作流状态
+### 6.3 Decap 工作流状态（仅方案 B）
 
 | 状态 | 含义 |
 |------|------|

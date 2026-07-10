@@ -8,7 +8,8 @@ backend:
   base_url: https://adgine-docs-oauth.shanghaichuanyou.workers.dev
   auth_endpoint: auth
 
-publish_mode: editorial_workflow
+# 直接提交到 main（无 PR）。若需审核流程，改为 editorial_workflow 并开启分支保护
+publish_mode: simple
 
 site_url: https://adgine.ai/docs/
 display_url: https://adgine.ai/docs
