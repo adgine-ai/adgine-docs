@@ -86,11 +86,17 @@ https://adgine-docs-oauth.your-name.workers.dev
 ### 4.3 配置密钥
 
 ```bash
+cd workers/decap-oauth
+
 wrangler secret put GITHUB_CLIENT_ID
-# 粘贴 Client ID
+# 粘贴 OAuth App 页面的 Client ID，例如 Ov23liLaYMnEQh1RBMK1
+# ⚠️ 不要填 adgine.ai 或 Homepage URL，必须是 Client ID 字符串
 
 wrangler secret put GITHUB_CLIENT_SECRET
-# 粘贴 Client Secret
+# 粘贴 Client Secret（需在 GitHub OAuth App 页面点击 Generate a new client secret）
+```
+
+> **常见错误**：若登录跳转 URL 里是 `client_id=adgine.ai`，说明 Worker 的 `GITHUB_CLIENT_ID` 填错了，请用上面命令重新设置。
 
 # 可选：限制允许使用 OAuth 的来源
 wrangler secret put ALLOWED_ORIGINS
@@ -250,6 +256,7 @@ npm run write-translations -- --locale zh-TW
 | Login 后报错 | Worker 地址或 Client Secret 错误 | 检查 `config.yml` base_url 与 wrangler secrets |
 | 保存失败 404 | 无仓库 Write 权限 | 添加协作者 |
 | 图片不显示 | `public_folder` 路径错误 | 应用 `/img/docs/...`，非外链 |
+| Login 后 GitHub 404 | `client_id=adgine.ai` 等错误值 | Worker 的 `GITHUB_CLIENT_ID` 应填 OAuth App 的 Client ID（如 `Ov23li...`），重新 `wrangler secret put` |
 | OAuth callback 失败 | Callback URL 与 Worker 不一致 | 回 GitHub OAuth App 修改 |
 | 样式丢失 | 正常，admin 页独立样式 | 不影响文档站 |
 

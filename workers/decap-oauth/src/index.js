@@ -3,12 +3,11 @@
  *
  * Routes:
  *   GET /auth      → redirect to GitHub OAuth
- *   GET /callback  → exchange code, post token to Decap admin opener
+ *   GET /callback  → exchange code, handshake with Decap admin opener
  *
  * Secrets (wrangler secret put):
  *   GITHUB_CLIENT_ID
  *   GITHUB_CLIENT_SECRET
- *   ALLOWED_ORIGINS  (optional, comma-separated, e.g. https://adgine.ai,https://adgine-docs.pages.dev)
  */
 
 const CORS = {
@@ -23,11 +22,74 @@ function html(body) {
   });
 }
 
-function isOriginAllowed(origin, env) {
-  if (!origin) return true;
-  const list = (env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean);
-  if (list.length === 0) return true;
-  return list.some((allowed) => origin === allowed || origin.startsWith(allowed));
+function callbackPage(accessToken) {
+  // Decap CMS expects a postMessage handshake from the OAuth popup.
+  // See: https://decapcms.org/docs/github-backend/
+  const tokenLiteral = JSON.stringify(accessToken);
+
+  return `<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <title>Adgine Docs 登录</title>
+    <style>
+      body { font-family: system-ui, sans-serif; padding: 2rem; color: #334155; }
+    </style>
+  </head>
+  <body>
+    <p id="status">正在完成 GitHub 登录…</p>
+    <script>
+      (function () {
+        var token = ${tokenLiteral};
+        var content =
+          'authorization:github:success:' +
+          JSON.stringify({ token: token, provider: 'github' });
+        var done = false;
+
+        function finish(message) {
+          if (done) return;
+          done = true;
+          document.getElementById('status').textContent = message;
+          setTimeout(function () {
+            window.close();
+          }, 500);
+        }
+
+        function sendToken(targetOrigin) {
+          if (window.opener && !window.opener.closed) {
+            window.opener.postMessage(content, targetOrigin || '*');
+            return true;
+          }
+          return false;
+        }
+
+        function receiveMessage(e) {
+          window.removeEventListener('message', receiveMessage, false);
+          sendToken(e.origin);
+          finish('登录成功，正在关闭窗口…');
+        }
+
+        if (window.opener && !window.opener.closed) {
+          window.addEventListener('message', receiveMessage, false);
+          window.opener.postMessage('authorizing:github', '*');
+
+          // Fallback: some Decap versions reply without a round-trip message
+          setTimeout(function () {
+            if (done) return;
+            window.removeEventListener('message', receiveMessage, false);
+            if (sendToken('*')) {
+              finish('登录成功，正在关闭窗口…');
+            } else {
+              finish('授权成功，请关闭此窗口并返回文档后台。');
+            }
+          }, 1500);
+        } else {
+          finish('授权成功，请关闭此窗口并返回文档后台。');
+        }
+      })();
+    </script>
+  </body>
+</html>`;
 }
 
 export default {
@@ -72,18 +134,7 @@ export default {
         return html(`<p>OAuth failed: ${JSON.stringify(data)}</p>`);
       }
 
-      const payload = JSON.stringify({token: data.access_token, provider: 'github'});
-      return html(`<!doctype html>
-<html><body><script>
-  (function () {
-    var msg = 'authorization:github:success:${payload.replace(/'/g, "\\'")}';
-    if (window.opener) {
-      window.opener.postMessage(msg, '*');
-    } else {
-      document.body.innerHTML = '<p>授权成功，请关闭此窗口并返回文档后台。</p>';
-    }
-  })();
-</script></body></html>`);
+      return html(callbackPage(data.access_token));
     }
 
     return new Response('Adgine Docs OAuth Worker. Use /auth', {status: 404, headers: CORS});
